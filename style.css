@@ -1,0 +1,84 @@
+/* RESET / GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #0E0E0E;
+    color: #fff;
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* prevents horizontal scroll if sidebar is fixed */
+  }
+  
+  /* SIDEBAR NAV */
+  .sidebar {
+    position: fixed;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar ul li {
+    margin: 1rem 0;
+  }
+  
+  .sidebar .nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    /* Initially hidden or low opacity if you want a “fog reveal” on hover or click */
+    opacity: 0.5;
+    transition: opacity 0.3s ease, text-shadow 0.3s ease, filter 0.3s ease;
+  }
+  
+  /* On Hover, give a subtle glow */
+  .sidebar .nav-link:hover {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    filter: blur(0.5px);
+  }
+  
+  /* ACTIVE LINK GLOW (you can toggle this class with JS on click) */
+  .active-glow {
+    opacity: 1 !important;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+    filter: blur(1px);
+    transition: opacity 0.8s ease, text-shadow 0.8s ease, filter 0.8s ease;
+  }
+  
+  /* MAIN CONTENT */
+  .content {
+    margin-left: 15%;
+    padding: 2rem;
+  }
+  
+  /* PROJECT SECTION */
+  .project {
+    margin-bottom: 5rem;
+  }
+  
+  .project h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  /* OPTIONAL: Animate sections “emerging from fog” when scrolled into view */
+  .project {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.0s ease, transform 1.0s ease;
+  }
+  
+  /* Reveal the project section when within viewport (you'll toggle .visible in JS or with IntersectionObserver) */
+  .project.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
